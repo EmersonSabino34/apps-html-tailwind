@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eletrônicos Store - Homepage</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-blue': '#1D4ED8', // blue-700
+                        'secondary-gray': '#4B5563', // gray-600
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Estilo para garantir que o modal comece escondido */
+        .modal {
+            display: none;
+        }
+        /* Estilo para exibir o modal */
+        .modal.open {
+            display: block;
+        }
+        /* Esconde formulários que não estão ativos */
+        .form-content:not(.active) {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+
+    <header class="bg-primary-blue shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="#" class="text-2xl font-bold text-white tracking-wider">
+                    EletroStore
+                </a>
+
+                <div class="flex space-x-4">
+                    <button id="openLoginBtn" class="bg-white text-primary-blue hover:bg-gray-100 font-medium py-2 px-4 rounded-lg transition duration-300 shadow-md">
+                        Login
+                    </button>
+                    <button id="openRegisterBtn" class="bg-green-500 text-white hover:bg-green-600 font-medium py-2 px-4 rounded-lg transition duration-300 shadow-md">
+                        Cadastre-se
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+        <div class="text-center">
+            <h1 class="text-5xl font-extrabold text-gray-900 leading-tight">
+                Tecnologia de Ponta ao seu Alcance
+            </h1>
+            <p class="mt-4 text-xl text-secondary-gray max-w-2xl mx-auto">
+                Confira as últimas novidades em smartphones, notebooks e acessórios.
+            </p>
+            <div class="mt-8">
+                <a href="#" class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-red-600 hover:bg-red-700 md:py-4 md:text-lg md:px-10 shadow-lg transition duration-300">
+                    Ver Produtos
+                </a>
+            </div>
+        </div>
+
+        <section class="mt-16">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8 border-b pb-2">Produtos em Destaque</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden">
+                    <div class="h-48 bg-gray-200 flex items-center justify-center">
+                        <span class="text-gray-500 font-medium">[Imagem do Notebook]</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900">Notebook Ultrafino</h3>
+                        <p class="mt-1 text-sm text-gray-500">Processador i7, 16GB RAM.</p>
+                        <p class="mt-3 text-2xl font-bold text-primary-blue">R$ 4.999,90</p>
+                        <button class="mt-4 w-full bg-primary-blue text-white py-2 rounded-lg hover:bg-blue-600 transition duration-300">Comprar</button>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden">
+                    <div class="h-48 bg-gray-200 flex items-center justify-center">
+                        <span class="text-gray-500 font-medium">[Imagem do Smartphone]</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900">Smartphone X Pro</h3>
+                        <p class="mt-1 text-sm text-gray-500">Câmera 108MP, Bateria longa.</p>
+                        <p class="mt-3 text-2xl font-bold text-primary-blue">R$ 2.499,90</p>
+                        <button class="mt-4 w-full bg-primary-blue text-white py-2 rounded-lg hover:bg-blue-600 transition duration-300">Comprar</button>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden">
+                    <div class="h-48 bg-gray-200 flex items-center justify-center">
+                        <span class="text-gray-500 font-medium">[Imagem do Fone]</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900">Fone Sem Fio Pro</h3>
+                        <p class="mt-1 text-sm text-gray-500">Cancelamento de Ruído Ativo.</p>
+                        <p class="mt-3 text-2xl font-bold text-primary-blue">R$ 899,90</p>
+                        <button class="mt-4 w-full bg-primary-blue text-white py-2 rounded-lg hover:bg-blue-600 transition duration-300">Comprar</button>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden">
+                    <div class="h-48 bg-gray-200 flex items-center justify-center">
+                        <span class="text-gray-500 font-medium">[Imagem da Smart TV]</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900">Smart TV 55" 4K</h3>
+                        <p class="mt-1 text-sm text-gray-500">Tela QLED, 120Hz.</p>
+                        <p class="mt-3 text-2xl font-bold text-primary-blue">R$ 3.599,90</p>
+                        <button class="mt-4 w-full bg-primary-blue text-white py-2 rounded-lg hover:bg-blue-600 transition duration-300">Comprar</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 mt-12 py-6">
+        <div class="max-w-7xl mx-auto px-4 text-center text-gray-400">
+            &copy; 2025 EletroStore. Todos os direitos reservados.
+        </div>
+    </footer>
+
+    <div id="authModal" class="modal fixed inset-0 z-50 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            
+            <div id="modalOverlay" class="fixed inset-0 bg-gray-900 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
+
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+
+            <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-2xl transform transition-all sm:my-8 sm:align-middle sm:max-w-md sm:w-full">
+                
+                <button id="closeModalBtn" class="absolute top-0 right-0 mt-4 mr-4 text-gray-400 hover:text-gray-600 z-10">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                </button>
+                
+                <div class="flex border-b border-gray-200">
+                    <button id="tabLogin" class="tab-btn w-1/2 py-3 text-center text-lg font-semibold border-b-2 transition duration-300" data-form="login">
+                        Login
+                    </button>
+                    <button id="tabRegister" class="tab-btn w-1/2 py-3 text-center text-lg font-semibold border-b-2 transition duration-300" data-form="register">
+                        Cadastro
+                    </button>
+                </div>
+
+                <div class="p-8">
+                    
+                    <div id="loginForm" class="form-content active">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">Acesse sua Conta</h3>
+                        <form>
+                            <div class="mb-4">
+                                <label for="email" class="block text-sm font-medium text-gray-700">E-mail</label>
+                                <input type="email" id="email" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary-blue focus:border-primary-blue sm:text-sm" placeholder="seuemail@exemplo.com">
+                            </div>
+                            <div class="mb-6">
+                                <label for="password" class="block text-sm font-medium text-gray-700">Senha</label>
+                                <input type="password" id="password" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary-blue focus:border-primary-blue sm:text-sm" placeholder="Sua senha">
+                            </div>
+                            <button type="submit" class="w-full bg-primary-blue text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition duration-300 font-semibold shadow-md">
+                                Entrar
+                            </button>
+                            <p class="mt-4 text-sm text-center text-gray-500">
+                                Não tem conta? 
+                                <a href="#" id="switchLoginToRegister" class="font-medium text-primary-blue hover:text-blue-600">Cadastre-se aqui</a>
+                            </p>
+                        </form>
+                    </div>
+
+                    <div id="registerForm" class="form-content">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">Crie sua Conta</h3>
+                        <form>
+                            <div class="mb-4">
+                                <label for="reg-name" class="block text-sm font-medium text-gray-700">Nome</label>
+                                <input type="text" id="reg-name" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary-blue focus:border-primary-blue sm:text-sm" placeholder="Seu nome completo">
+                            </div>
+                            <div class="mb-4">
+                                <label for="reg-email" class="block text-sm font-medium text-gray-700">E-mail</label>
+                                <input type="email" id="reg-email" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary-blue focus:border-primary-blue sm:text-sm" placeholder="seuemail@exemplo.com">
+                            </div>
+                            <div class="mb-6">
+                                <label for="reg-password" class="block text-sm font-medium text-gray-700">Senha</label>
+                                <input type="password" id="reg-password" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary-blue focus:border-primary-blue sm:text-sm" placeholder="Mínimo 6 caracteres">
+                            </div>
+                            <button type="submit" class="w-full bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600 transition duration-300 font-semibold shadow-md">
+                                Criar Conta
+                            </button>
+                            <p class="mt-4 text-sm text-center text-gray-500">
+                                Já tem uma conta? 
+                                <a href="#" id="switchRegisterToLogin" class="font-medium text-primary-blue hover:text-blue-600">Faça login</a>
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById('authModal');
+        const openLoginBtn = document.getElementById('openLoginBtn');
+        const openRegisterBtn = document.getElementById('openRegisterBtn');
+        const closeBtn = document.getElementById('closeModalBtn');
+        const overlay = document.getElementById('modalOverlay');
+        const tabs = document.querySelectorAll('.tab-btn');
+        const loginForm = document.getElementById('loginForm');
+        const registerForm = document.getElementById('registerForm');
+        const switchLogin = document.getElementById('switchLoginToRegister');
+        const switchRegister = document.getElementById('switchRegisterToLogin');
+
+        // Função para abrir o modal e definir a aba ativa
+        function openModal(formType) {
+            modal.classList.add('open');
+            showForm(formType);
+        }
+
+        // Função para fechar o modal
+        function closeModal() {
+            modal.classList.remove('open');
+        }
+
+        // Função para alternar entre Login e Cadastro
+        function showForm(formType) {
+            // Remove a classe 'active' de todos
+            loginForm.classList.remove('active');
+            registerForm.classList.remove('active');
+            tabs.forEach(tab => tab.classList.remove('text-primary-blue', 'border-primary-blue'));
+            tabs.forEach(tab => tab.classList.add('text-secondary-gray', 'border-transparent'));
+
+            // Adiciona a classe 'active' e o estilo de tab ativa
+            if (formType === 'login') {
+                loginForm.classList.add('active');
+                document.getElementById('tabLogin').classList.remove('text-secondary-gray', 'border-transparent');
+                document.getElementById('tabLogin').classList.add('text-primary-blue', 'border-primary-blue');
+            } else if (formType === 'register') {
+                registerForm.classList.add('active');
+                document.getElementById('tabRegister').classList.remove('text-secondary-gray', 'border-transparent');
+                document.getElementById('tabRegister').classList.add('text-primary-blue', 'border-primary-blue');
+            }
+        }
+
+        // Event Listeners
+        openLoginBtn.addEventListener('click', () => openModal('login'));
+        openRegisterBtn.addEventListener('click', () => openModal('register'));
+        closeBtn.addEventListener('click', closeModal);
+        overlay.addEventListener('click', closeModal);
+
+        // Event Listeners para alternar as abas
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                showForm(tab.dataset.form);
+            });
+        });
+        
+        // Event Listeners para links dentro dos formulários
+        switchLogin.addEventListener('click', (e) => {
+            e.preventDefault();
+            showForm('register');
+        });
+
+        switchRegister.addEventListener('click', (e) => {
+            e.preventDefault();
+            showForm('login');
+        });
+
+        // Inicializa o estilo da aba de Login
+        showForm('login');
+    </script>
+
+</body>
+</html>
